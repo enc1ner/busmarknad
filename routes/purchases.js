@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('');
+var db = mongojs('mongodb://admin:admin@ds060749.mlab.com:60749/busmarknad', ['purchases']);
 
 // Get purchases
 router.get('/purchases', function(req, res, next){
