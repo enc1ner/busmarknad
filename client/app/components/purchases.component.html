@@ -1,0 +1,25 @@
+<div class="add-purchase-form text-center">
+
+    <h1>Lägg till köp</h1>
+    <div class="form-group">
+        <input class="form-control input-lg" placeholder="Säljare" autofocus #purchaseSeller />
+        <input class="form-control input-lg" placeholder="Pris" autofocus #purchasePrice />
+        <br>
+        <button class="btn btn-primary btn-block">Lägg till</button>
+    </div>
+</div>
+
+<div class="purchase-list">
+    <div *ngFor="let purchase of purchases">
+        <div class="col-md-1">
+            {{purchase.seller}}
+        </div>
+        <div class="col-md-7">
+            {{purchase.price}}
+        </div>
+        <div class="col-md-4 btns">
+            <input type="button" class="btn btn-danger pull-right" value="Ta bort">
+            <input type="button" class="btn btn-default pull-right" value="Redigera">
+        </div>
+    </div>
+</div>
