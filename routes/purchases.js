@@ -28,8 +28,10 @@ router.get('/purchase/:id', function(req, res, next){
 });
 
 //Save purchase
-router.post('/purchase',function(req, res, next){
+router.post('/purchase', function(req, res, next){
     var purchase = req.body;
+    console.log(purchase.seller);
+    console.log(purchase.price);
     if(!purchase.seller || !(purchase.price > 0 || purchase.price)){
         res.status(400);
         res.json({

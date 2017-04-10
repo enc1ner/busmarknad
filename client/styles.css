@@ -1,0 +1,17 @@
+i.fa.fa-pencil-square-o, i.fa.fa-trash-o {
+    font-size: larger;
+}
+
+i.fa.fa-pencil-square-o {
+    padding-top: 1px;
+}
+
+div.purchase-list {
+    display: flex;
+    justify-content: center;
+}
+
+td.table-last-column {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -5,21 +5,27 @@
         <input class="form-control input-lg" placeholder="Säljare" autofocus #purchaseSeller />
         <input class="form-control input-lg" placeholder="Pris" autofocus #purchasePrice />
         <br>
-        <button class="btn btn-primary btn-block">Lägg till</button>
+        <button (click)="addPurchase($event, purchaseSeller, purchasePrice)" class="btn btn-primary btn-block">Lägg till</button>
     </div>
 </div>
 
 <div class="purchase-list">
-    <div *ngFor="let purchase of purchases">
-        <div class="col-md-1">
-            {{purchase.seller}}
-        </div>
-        <div class="col-md-7">
-            {{purchase.price}}
-        </div>
-        <div class="col-md-4 btns">
-            <input type="button" class="btn btn-danger pull-right" value="Ta bort">
-            <input type="button" class="btn btn-default pull-right" value="Redigera">
-        </div>
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Säljare</th>
+                    <th>Pris</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let purchase of purchases">
+                    <td>{{purchase.seller}}</td>
+                    <td>{{purchase.price}}</td>
+                    <td class="table-last-column"><i (click)="editPurchase($event, purchase)" class="fa fa-pencil-square-o" aria-hidden="true"></i> <i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

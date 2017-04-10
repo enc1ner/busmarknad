@@ -22,4 +22,18 @@ export class PurchasesComponent implements OnInit {
                 this.purchases = purchases;
             })
     }
+
+    addPurchase(event, purchaseSeller, purchasePrice) {
+        var purchase = new Purchase();
+        purchase.price = purchasePrice.value;
+        purchase.seller = purchaseSeller.value;        
+        this._purchaseService.savePurchase(purchase);
+        // console.log(purchaseSeller.value);
+        // console.log(purchasePrice.value);
+    }
+    
+
+    editPurchase(event, purchase) {
+        console.log(purchase);
+    }
 }
