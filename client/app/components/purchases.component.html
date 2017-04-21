@@ -3,9 +3,9 @@
     <h1>Lägg till köp</h1>
     <div class="form-group">
         <input class="form-control input-lg" placeholder="Säljare" autofocus #seller />
-        <input class="form-control input-lg" placeholder="Pris" autofocus #price />
+        <input (keyup.enter)="addPurchase($event, seller, price)" class="form-control input-lg" placeholder="Pris" autofocus #price />
         <br>
-        <button (click)="addPurchase($event, seller, price)" class="btn btn-primary btn-block">Lägg till</button>
+        <button (click)="addPurchase($event, seller, price)" (keyup.enter)="addPurchase($event, seller, price)" class="btn btn-primary btn-block">Lägg till</button>
     </div>
 </div>
 
