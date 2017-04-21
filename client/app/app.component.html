@@ -12,8 +12,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Köp</a></li>
-                <li><a href="#about">Säljare</a></li>
+                <li><a routerLink="/" routerLinkActive="active">Köp</a></li>
+                <li><a routerLink="/sellers" routerLinkActive="active">Säljare</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->
@@ -23,7 +23,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <purchases></purchases>
+            <!--<purchases></purchases>-->
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

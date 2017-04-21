@@ -1,0 +1,20 @@
+<div class="purchase-list">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Säljare</th>
+                    <th>Summa</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let purchase of orderedPurchases">
+                    <td>{{purchase.seller}}</td>
+                    <td>{{purchase.price}}</td>
+                    <td class="table-last-column"><i (click)="deletePurchase(purchase)" class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -9,8 +9,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var purchases_component_1 = require("./components/purchases.component");
+var sellers_component_1 = require("./components/sellers.component");
+var appRoutes = [
+    { path: 'purchases', component: purchases_component_1.PurchasesComponent },
+    { path: 'sellers', component: sellers_component_1.SellersComponent },
+    { path: '', redirectTo: '/purchases', pathMatch: 'full' }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -18,8 +25,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent, purchases_component_1.PurchasesComponent],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
+        declarations: [app_component_1.AppComponent, purchases_component_1.PurchasesComponent, sellers_component_1.SellersComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

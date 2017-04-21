@@ -36,9 +36,9 @@ export class PurchasesComponent implements OnInit {
 
         this._purchaseService.savePurchase(purchase)
             .subscribe(x => {
-            this.purchases.push(x);
-            seller.focus();
-        });
+                this.purchases.push(x);
+                seller.focus();
+            });
 
         this.clearForm(seller, price);
     }

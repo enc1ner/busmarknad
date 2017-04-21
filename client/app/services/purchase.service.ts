@@ -8,6 +8,7 @@ export class PurchaseService {
         
     }
 
+
     getPurchases() {
         return this._http.get('/api/v1/purchases')
             .map(res => res.json());

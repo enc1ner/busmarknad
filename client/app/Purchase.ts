@@ -1,5 +1,5 @@
 export class Purchase {
     id: string;
-    seller: string;
+    seller: number;
     price: number;
 }
