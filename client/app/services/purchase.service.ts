@@ -19,4 +19,9 @@ export class PurchaseService {
         return this._http.post('/api/v1/purchase', JSON.stringify(purchase), {headers: headers})
             .map(res => res.json());        
     }
+
+    deletePurchase(id) {
+        return this._http.delete('/api/v1/purchase/' + id)
+            .map(res => res.json());
+    }
 }

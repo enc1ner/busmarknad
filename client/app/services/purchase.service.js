@@ -26,6 +26,10 @@ var PurchaseService = (function () {
         return this._http.post('/api/v1/purchase', JSON.stringify(purchase), { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    PurchaseService.prototype.deletePurchase = function (id) {
+        return this._http.delete('/api/v1/purchase/' + id)
+            .map(function (res) { return res.json(); });
+    };
     return PurchaseService;
 }());
 PurchaseService = __decorate([

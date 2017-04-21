@@ -23,6 +23,10 @@ export class PurchasesComponent implements OnInit {
         })
     }
 
+    next(event, price) {
+        price.focus();
+    }
+
     addPurchase(event, seller, price) {
         var result;
         var newPurchase = {
@@ -34,18 +38,23 @@ export class PurchasesComponent implements OnInit {
             this.purchases.push(newPurchase);
             seller.value = '';
             price.value = '';
-
+            seller.focus();
         });
     }
-    
-    setEditState(purchase, state) {
-        if(state) {
-            purchase.isEditMode = state;
-        } else {
-            delete purchase.isEditMode;
-        }
-    }
-    editPurchase(event, purchase) {
-        console.log(purchase);
+
+    deletePurchase(todo) {
+        var purchases = this.purchases;
+
+        this._purchaseService.deletePurchase(todo._id)
+            .subscribe(data => {
+                if(data.n == 1) {
+                    for (var i = 0; i < purchases.length; i++) {
+                        var element = purchases[i];
+                        if (element._id == todo._id) {
+                            purchases.splice(i, 1);
+                        }
+                    }
+                }
+            });
     }
 }

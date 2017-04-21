@@ -2,7 +2,7 @@
 
     <h1>Lägg till köp</h1>
     <div class="form-group">
-        <input class="form-control input-lg" placeholder="Säljare" autofocus #seller />
+        <input (keyup.enter)="next($event, price)" class="form-control input-lg" placeholder="Säljare" autofocus #seller />
         <input (keyup.enter)="addPurchase($event, seller, price)" class="form-control input-lg" placeholder="Pris" autofocus #price />
         <br>
         <button (click)="addPurchase($event, seller, price)" (keyup.enter)="addPurchase($event, seller, price)" class="btn btn-primary btn-block">Lägg till</button>
@@ -23,7 +23,7 @@
                 <tr *ngFor="let purchase of purchases">
                     <td>{{purchase.seller}}</td>
                     <td>{{purchase.price}}</td>
-                    <td class="table-last-column"><i (click)="editPurchase($event, purchase)" class="fa fa-pencil-square-o" aria-hidden="true"></i> <i class="fa fa-trash-o" aria-hidden="true"></i></td>
+                    <td class="table-last-column"><i (click)="deletePurchase(purchase)" class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
                 </tr>
             </tbody>
         </table>

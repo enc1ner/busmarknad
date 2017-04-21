@@ -24,6 +24,9 @@ var PurchasesComponent = (function () {
             _this.purchases = purchases;
         });
     };
+    PurchasesComponent.prototype.next = function (event, price) {
+        price.focus();
+    };
     PurchasesComponent.prototype.addPurchase = function (event, seller, price) {
         var _this = this;
         var result;
@@ -36,18 +39,22 @@ var PurchasesComponent = (function () {
             _this.purchases.push(newPurchase);
             seller.value = '';
             price.value = '';
+            seller.focus();
         });
     };
-    PurchasesComponent.prototype.setEditState = function (purchase, state) {
-        if (state) {
-            purchase.isEditMode = state;
-        }
-        else {
-            delete purchase.isEditMode;
-        }
-    };
-    PurchasesComponent.prototype.editPurchase = function (event, purchase) {
-        console.log(purchase);
+    PurchasesComponent.prototype.deletePurchase = function (todo) {
+        var purchases = this.purchases;
+        this._purchaseService.deletePurchase(todo._id)
+            .subscribe(function (data) {
+            if (data.n == 1) {
+                for (var i = 0; i < purchases.length; i++) {
+                    var element = purchases[i];
+                    if (element._id == todo._id) {
+                        purchases.splice(i, 1);
+                    }
+                }
+            }
+        });
     };
     return PurchasesComponent;
 }());
