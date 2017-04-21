@@ -2,8 +2,8 @@
 
     <h1>Lägg till köp</h1>
     <div class="form-group">
-        <input (keyup.enter)="next($event, price)" class="form-control input-lg" placeholder="Säljare" autofocus #seller />
-        <input (keyup.enter)="addPurchase($event, seller, price)" class="form-control input-lg" placeholder="Pris" autofocus #price />
+        <input (keyup.enter)="next($event, price)" class="form-control input-lg" placeholder="Säljare" autofocus #seller  />
+        <input (keyup.enter)="addPurchase($event, seller, price)" class="form-control input-lg" placeholder="Pris" #price />
         <br>
         <button (click)="addPurchase($event, seller, price)" (keyup.enter)="addPurchase($event, seller, price)" class="btn btn-primary btn-block">Lägg till</button>
     </div>

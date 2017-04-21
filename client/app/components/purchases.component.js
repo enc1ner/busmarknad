@@ -29,21 +29,25 @@ var PurchasesComponent = (function () {
     };
     PurchasesComponent.prototype.addPurchase = function (event, seller, price) {
         var _this = this;
-        var result;
-        var newPurchase = {
+        var purchase = {
+            id: null,
             price: price.value,
             seller: seller.value
         };
-        result = this._purchaseService.savePurchase(newPurchase);
-        result.subscribe(function (x) {
-            _this.purchases.push(newPurchase);
-            seller.value = '';
-            price.value = '';
+        this._purchaseService.savePurchase(purchase)
+            .subscribe(function (x) {
+            _this.purchases.push(x);
             seller.focus();
         });
+        this.clearForm(seller, price);
+    };
+    PurchasesComponent.prototype.clearForm = function (seller, price) {
+        seller.value = '';
+        price.value = '';
     };
     PurchasesComponent.prototype.deletePurchase = function (todo) {
         var purchases = this.purchases;
+        console.log(todo._id);
         this._purchaseService.deletePurchase(todo._id)
             .subscribe(function (data) {
             if (data.n == 1) {

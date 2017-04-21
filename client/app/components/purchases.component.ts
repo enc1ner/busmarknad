@@ -20,7 +20,7 @@ export class PurchasesComponent implements OnInit {
         this._purchaseService.getPurchases()
             .subscribe(purchases => {
                 this.purchases = purchases;
-        })
+        });
     }
 
     next(event, price) {
@@ -28,23 +28,29 @@ export class PurchasesComponent implements OnInit {
     }
 
     addPurchase(event, seller, price) {
-        var result;
-        var newPurchase = {
+        var purchase = {
+            id: null,
             price: price.value,
             seller: seller.value        
         };
-        result = this._purchaseService.savePurchase(newPurchase);
-        result.subscribe(x => {
-            this.purchases.push(newPurchase);
-            seller.value = '';
-            price.value = '';
+
+        this._purchaseService.savePurchase(purchase)
+            .subscribe(x => {
+            this.purchases.push(x);
             seller.focus();
         });
+
+        this.clearForm(seller, price);
+    }
+
+    clearForm(seller, price) {
+        seller.value = '';
+        price.value = '';
     }
 
     deletePurchase(todo) {
         var purchases = this.purchases;
-
+        console.log(todo._id);
         this._purchaseService.deletePurchase(todo._id)
             .subscribe(data => {
                 if(data.n == 1) {
