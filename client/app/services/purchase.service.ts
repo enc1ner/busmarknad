@@ -16,9 +16,7 @@ export class PurchaseService {
     savePurchase(purchase) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        var result = this._http.post('/api/v1/purchase', JSON.stringify(purchase), {headers: headers})
-            .map(res => res.json());
-        // console.log(result);
-        return result;
+        return this._http.post('/api/v1/purchase', JSON.stringify(purchase), {headers: headers})
+            .map(res => res.json());        
     }
 }

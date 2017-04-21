@@ -38,6 +38,14 @@ var PurchasesComponent = (function () {
             price.value = '';
         });
     };
+    PurchasesComponent.prototype.setEditState = function (purchase, state) {
+        if (state) {
+            purchase.isEditMode = state;
+        }
+        else {
+            delete purchase.isEditMode;
+        }
+    };
     PurchasesComponent.prototype.editPurchase = function (event, purchase) {
         console.log(purchase);
     };

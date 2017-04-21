@@ -23,10 +23,8 @@ var PurchaseService = (function () {
     PurchaseService.prototype.savePurchase = function (purchase) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        var result = this._http.post('/api/v1/purchase', JSON.stringify(purchase), { headers: headers })
+        return this._http.post('/api/v1/purchase', JSON.stringify(purchase), { headers: headers })
             .map(function (res) { return res.json(); });
-        // console.log(result);
-        return result;
     };
     return PurchaseService;
 }());

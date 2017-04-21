@@ -38,7 +38,13 @@ export class PurchasesComponent implements OnInit {
         });
     }
     
-
+    setEditState(purchase, state) {
+        if(state) {
+            purchase.isEditMode = state;
+        } else {
+            delete purchase.isEditMode;
+        }
+    }
     editPurchase(event, purchase) {
         console.log(purchase);
     }
