@@ -38,7 +38,7 @@ router.post('/purchase', function(req, res, next){
             "error": "Fel"
         });
     } else {
-        db.save(purchase, function(err, result){
+        db.purchases.save(purchase, function(err, result){
             if(err){
                 res.send(err);
             } else {

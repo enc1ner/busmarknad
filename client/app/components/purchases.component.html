@@ -2,10 +2,10 @@
 
     <h1>Lägg till köp</h1>
     <div class="form-group">
-        <input class="form-control input-lg" placeholder="Säljare" autofocus #purchaseSeller />
-        <input class="form-control input-lg" placeholder="Pris" autofocus #purchasePrice />
+        <input class="form-control input-lg" placeholder="Säljare" autofocus #seller />
+        <input class="form-control input-lg" placeholder="Pris" autofocus #price />
         <br>
-        <button (click)="addPurchase($event, purchaseSeller, purchasePrice)" class="btn btn-primary btn-block">Lägg till</button>
+        <button (click)="addPurchase($event, seller, price)" class="btn btn-primary btn-block">Lägg till</button>
     </div>
 </div>
 

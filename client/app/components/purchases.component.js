@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var purchase_service_1 = require(".././services/purchase.service");
-var Purchase_1 = require("../Purchase");
 var PurchasesComponent = (function () {
     function PurchasesComponent(_purchaseService) {
         this._purchaseService = _purchaseService;
@@ -25,13 +24,19 @@ var PurchasesComponent = (function () {
             _this.purchases = purchases;
         });
     };
-    PurchasesComponent.prototype.addPurchase = function (event, purchaseSeller, purchasePrice) {
-        var purchase = new Purchase_1.Purchase();
-        purchase.price = purchasePrice.value;
-        purchase.seller = purchaseSeller.value;
-        this._purchaseService.savePurchase(purchase);
-        // console.log(purchaseSeller.value);
-        // console.log(purchasePrice.value);
+    PurchasesComponent.prototype.addPurchase = function (event, seller, price) {
+        var _this = this;
+        var result;
+        var newPurchase = {
+            price: price.value,
+            seller: seller.value
+        };
+        result = this._purchaseService.savePurchase(newPurchase);
+        result.subscribe(function (x) {
+            _this.purchases.push(newPurchase);
+            seller.value = '';
+            price.value = '';
+        });
     };
     PurchasesComponent.prototype.editPurchase = function (event, purchase) {
         console.log(purchase);
