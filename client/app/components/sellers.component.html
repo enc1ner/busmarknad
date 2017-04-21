@@ -12,7 +12,6 @@
                 <tr *ngFor="let purchase of orderedPurchases">
                     <td>{{purchase.seller}}</td>
                     <td>{{purchase.price}}</td>
-                    <td class="table-last-column"><i (click)="deletePurchase(purchase)" class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
                 </tr>
             </tbody>
         </table>
