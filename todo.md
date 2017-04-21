@@ -1,6 +1,7 @@
 - Möjlighet att trycka enter mellan varje inmatning.
 - Möjlighet för halva priset, inställning
-
+- Lägg till överst på listan
+- FLasha med ett grönt ljus när den är tillagd
 Säljare:
     Totalsumma alla försäljningar
     Kolumner:
